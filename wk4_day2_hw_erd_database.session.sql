@@ -4,12 +4,16 @@ CREATE TABLE movie_theater(
 );
 
 CREATE TABLE staff(
-    staff_id SERIAL PRIMARY KEY,
-    theater_id INTEGER,
-    first_name VARCHAR,
-    last_name VARCHAR,
-    FOREIGN KEY (theater_id) REFERENCES movie_theater(theater_id)
 );
+
+ALTER TABLE staff
+ADD staff_id SERIAL PRIMARY KEY;
+
+ALTER TABLE staff
+ADD first_name VARCHAR,
+ADD last_name VARCHAR,
+ADD theater_id INTEGER,
+FOREIGN KEY (theater_id) REFERENCES movie_theater (theater_id);
 
 CREATE TABLE payments(
     payment_id SERIAL PRIMARY KEY,
